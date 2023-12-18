@@ -13,6 +13,23 @@ class xylophone extends StatelessWidget {
     player.play(AssetSource('note$soundnum.wav'));
   }
 
+  Expanded buildkey(Color Colors, {required int soundNumber}) {
+    return Expanded(
+      child: TextButton(
+        onPressed: () {
+          Playsound(soundNumber);
+        },
+        child: Text(
+          'play me',
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,97 +40,13 @@ class xylophone extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    Playsound(1);
-                  },
-                  child: Text(
-                    'Play me',
-                    style: TextStyle(
-                      backgroundColor: Colors.blue[300],
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    Playsound(2);
-                  },
-                  child: Text(
-                    'Play me',
-                    style: TextStyle(
-                      backgroundColor: Colors.indigo[300],
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    Playsound(3);
-                  },
-                  child: Text(
-                    'Play me',
-                    style: TextStyle(
-                      backgroundColor: Colors.green[300],
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    Playsound(4);
-                  },
-                  child: Text(
-                    'Play me',
-                    style: TextStyle(
-                      backgroundColor: Colors.purple[300],
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    Playsound(5);
-                  },
-                  child: Text(
-                    'Play me',
-                    style: TextStyle(
-                      backgroundColor: Colors.yellow[300],
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    Playsound(6);
-                  },
-                  child: Text(
-                    'Play me',
-                    style: TextStyle(
-                      backgroundColor: Colors.red[300],
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    Playsound(7);
-                  },
-                  child: Text(
-                    'Play me',
-                    style: TextStyle(
-                      backgroundColor: Colors.pink[300],
-                    ),
-                  ),
-                ),
-              ),
+              buildkey(Colors.blue, soundNumber: 1),
+              buildkey(Colors.purple, soundNumber: 2),
+              buildkey(Colors.lightGreen, soundNumber: 3),
+              buildkey(Colors.orangeAccent, soundNumber: 4),
+              buildkey(Colors.red, soundNumber: 5),
+              buildkey(Colors.indigo, soundNumber: 6),
+              buildkey(Colors.pinkAccent, soundNumber: 7)
             ],
           ),
         ),
